@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>System & Browser Info</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>System & Browser Info</h1>
+        <p class="lead">A single-page diagnostic site that reads available info from your browser and device (no server contact).</p>
+      </div>
+      <div class="controls">
+        <button id="btn-refresh">Refresh</button>
+        <button id="btn-copy">Copy JSON</button>
+        <button id="btn-download">Download JSON</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card" id="card-general">
+        <h3>General</h3>
+        <div class="row"><div class="k">User agent</div><div class="v" id="ua">—</div></div>
+        <div class="row"><div class="k">Browser</div><div class="v" id="browser">—</div></div>
+        <div class="row"><div class="k">Engine</div><div class="v" id="engine">—</div></div>
+        <div class="row"><div class="k">Platform / OS</div><div class="v" id="os">—</div></div>
+        <div class="row"><div class="k">Language(s)</div><div class="v" id="languages">—</div></div>
+        <div class="row"><div class="k">Timezone</div><div class="v" id="timezone">—</div></div>
+        <div class="row"><div class="k">Cookies enabled</div><div class="v" id="cookies">—</div></div>
+        <div class="row"><div class="k">Do Not Track</div><div class="v" id="dnt">—</div></div>
+      </section>
+
+      <section class="card" id="card-screen">
+        <h3>Screen & Display</h3>
+        <div class="row"><div class="k">Screen size</div><div class="v" id="screen-size">—</div></div>
+        <div class="row"><div class="k">Available size</div><div class="v" id="avail-size">—</div></div>
+        <div class="row"><div class="k">Device pixel ratio</div><div class="v" id="dpr">—</div></div>
+        <div class="row"><div class="k">Color depth</div><div class="v" id="color-depth">—</div></div>
+        <div class="row"><div class="k">Touch support</div><div class="v" id="touch">—</div></div>
+      </section>
+
+      <section class="card" id="card-hardware">
+        <h3>Hardware</h3>
+        <div class="row"><div class="k">CPU threads</div><div class="v" id="concurrency">—</div></div>
+        <div class="row"><div class="k">Approx. RAM (GB)</div><div class="v" id="memory">—</div></div>
+        <div class="row"><div class="k">Battery</div><div class="v" id="battery">—</div></div>
+        <div class="row"><div class="k">Storage estimate</div><div class="v" id="storage">—</div></div>
+      </section>
+
+      <section class="card" id="card-network">
+        <h3>Network</h3>
+        <div class="row"><div class="k">Online</div><div class="v" id="online">—</div></div>
+        <div class="row"><div class="k">Connection type</div><div class="v" id="conn-type">—</div></div>
+        <div class="row"><div class="k">Effective type</div><div class="v" id="effective-type">—</div></div>
+        <div class="row"><div class="k">Downlink (Mbps)</div><div class="v" id="downlink">—</div></div>
+        <div class="row"><div class="k">RTT (ms)</div><div class="v" id="rtt">—</div></div>
+      </section>
+
+      <section class="card" id="card-plugins">
+        <h3>Plugins & Capabilities</h3>
+        <div class="row"><div class="k">Plugins</div><div class="v" id="plugins">—</div></div>
+        <div class="row"><div class="k">WebGL</div><div class="v" id="webgl">—</div></div>
+        <div class="row"><div class="k">Service worker</div><div class="v" id="sw">—</div></div>
+        <div class="row"><div class="k">Cookie store API</div><div class="v" id="cookie-store">—</div></div>
+      </section>
+
+      <section class="card" id="card-advanced">
+        <h3>Advanced / Optional</h3>
+        <div class="row"><div class="k">Local IP (may be blocked)</div><div class="v" id="local-ip">—</div></div>
+        <div class="row"><div class="k">Geolocation</div><div class="v" id="geo">—</div></div>
+        <div style="padding-top:10px">
+          <button id="btn-get-ip">Try get local IP</button>
+          <button id="btn-geo">Request Geolocation</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:14px">
+      <h3>Raw JSON</h3>
+      <pre id="raw">—</pre>
+    </section>
+
+    <footer style="margin-top:12px;color:var(--muted)">No data is sent to any server. This page reads what your browser exposes. Some fields require permission or may be unavailable depending on browser/privacy settings.</footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
